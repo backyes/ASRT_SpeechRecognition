@@ -11,6 +11,7 @@ from SpeechModel251 import ModelSpeech
 from LanguageModel2 import ModelLanguage
 from keras import backend as K
 
+
 datapath = ''
 modelpath = 'model_speech'
 
@@ -28,15 +29,9 @@ else:
 
 ms = ModelSpeech(datapath)
 
-#ms.LoadModel(modelpath + 'm22_2\\0\\speech_model22_e_0_step_257000.model')
-ms.LoadModel(modelpath + 'm251\\speech_model251_e_0_step_12000.model')
+ms.LoadModel(modelpath + 'm251/speech_model251_e_0_step_25500.model')
 
-#ms.TestModel(datapath, str_dataset='test', data_count = 64, out_report = True)
-r = ms.RecognizeSpeech_FromFile('D:\\语音数据集\\ST-CMDS-20170001_1-OS\\20170001P00241I0052.wav')
-#r = ms.RecognizeSpeech_FromFile('D:\语音数据集\ST-CMDS-20170001_1-OS\\20170001P00241I0053.wav')
-#r = ms.RecognizeSpeech_FromFile('D:\\语音数据集\\ST-CMDS-20170001_1-OS\\20170001P00020I0087.wav')
-#r = ms.RecognizeSpeech_FromFile('D:\\语音数据集\\data_thchs30\\data\\A11_167.WAV')
-#r = ms.RecognizeSpeech_FromFile('D:\\语音数据集\\data_thchs30\\data\\D4_750.wav')
+r = ms.RecognizeSpeech_FromFile('/home/jovyan/ST-CMDS-20170001_1-OS/20170001P00241I0052.wav')
 
 K.clear_session()
 
@@ -53,17 +48,3 @@ str_pinyin = r
 #str_pinyin =  ['su1', 'bei3', 'jun1', 'de5', 'yi4','xie1', 'ai4', 'guo2', 'jiang4', 'shi4', 'ma3', 'zhan4', 'shan1', 'ming2', 'yi1', 'dong4', 'ta1', 'ju4', 'su1', 'bi3', 'ai4', 'dan4', 'tian2','mei2', 'bai3', 'ye3', 'fei1', 'qi3', 'kan4', 'zhan4']
 r = ml.SpeechToText(str_pinyin)
 print('语音转文字结果：\n',r)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
